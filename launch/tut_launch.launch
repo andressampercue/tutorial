@@ -1,0 +1,36 @@
+<launch>
+	<node
+		pkg = "tutorial"
+		type = "deteccionMentira.py"
+		name = "deteccionMentira"
+		output = "screen"
+	/>
+	
+	<node
+		pkg = "tutorial"
+		type = "cuestionario1.py"
+		name = "cuestionario1"
+		output = "screen"
+	/>
+	
+	<node
+		pkg = "tutorial"
+		type = "chatBotS.py"
+		name = "chatBotS"
+		output = "screen"
+	/>
+	
+	<node
+		pkg = "tutorial"
+		type = "chatbotSpecific.py"
+		name = "chatbotSpecific"
+		output = "screen"
+	/>
+	
+	<node
+		pkg = "tutorial"
+		type = "ceci.py"
+		name = "ceci"
+		output = "screen"
+	/>
+</launch>

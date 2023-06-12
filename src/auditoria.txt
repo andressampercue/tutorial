@@ -1,0 +1,115 @@
+
+cuestionario 1 - 2023-05-09 19:26:27.162083
+Cuestionario uno. Pregunta 1.  ¿Cual es su recuerdo mas vivido?C0 - 2023-05-09 19:26:27.473821
+mi recuerdo más vivido era cuando íbamos con mi hermano a la casa de mi tía abuela en Gualaceo me recuerdo cuando llegamos yo con mi abuelo Jorge mis padres y el resto de la familia a jugar Carnaval Mis abuelos cocinaban muy rico tortillas carnitas jugamos todos cartas - 2023-05-09 19:28:16.950243
+Nodo Detector mentiras responde>: Es verdad  - 2023-05-09 19:28:18.213773
+Pregunta 2  ¿Qué es lo que menos le gusta de usted?C1 - 2023-05-09 19:28:18.756056
+lo que menos me gusta de mí son mis cachetes un tanto anchos pero pienso que con un poco de esfuerzo y ejercicio y cardio el problema Sería solventado - 2023-05-09 19:29:03.842994
+Nodo Detector mentiras responde>: Es mentira  - 2023-05-09 19:29:04.184988
+Pregunta 3  ¿Bajo qué circunstancias mentiría?C2 - 2023-05-09 19:29:07.274772
+mentiria bajo circunstancias en las que me encuentre bajo presión de otras personas en las que no confío en las que tal vez mi vida corra peligro o cuando no quisiera herir a una persona por acciones erróneas que he hecho - 2023-05-09 19:29:51.048967
+Nodo Detector mentiras responde>: Es mentira  - 2023-05-09 19:29:51.307166
+Pregunta 4  ¿Qué recuerda de su padre?C3 - 2023-05-09 19:29:54.657074
+lo que recuerdo de mi padre es qué es un ser humano increíble un padre increíble que se preocupa por toda su familia y también por mi persona y que compartimos algunos gustos en común y compartimos tiempo por ejemplo coleccionando monedas y disfruto mucho el tiempo compartido- 2023-05-09 19:30:24.847598
+Nodo Detector mentiras responde>: Es verdad  - 2023-05-09 19:30:25.199001
+Pregunta 5  ¿Qué recuerda de su madre?C4 - 2023-05-09 19:30:29.008598
+lo que recuerdo de mi madre Qué es un ser humano increíble es un ángel es de las personas con las que más me parezco en este mundo es una excelente madre Me gusta compartir bastante tiempo con ella y me recuerda a mi abuelo- 2023-05-09 19:30:57.282202
+Nodo Detector mentiras responde>: Es mentira  - 2023-05-09 19:30:57.559055
+Pregunta 6  ¿Cuál ha sido la mejor experiencia de su vida?C5 - 2023-05-09 19:31:01.799605
+la mejor experiencia de mi vida fue cuando pueda primera vez fui a playas a pasar vacaciones con mi familia fue un verano increíble cielos azules Mar Azul no había ido a la playa en mucho tiempo y nunca ha visto en una playa tan bonita - 2023-05-09 19:31:44.124941
+Nodo Detector mentiras responde>: Es mentira  - 2023-05-09 19:31:44.501684
+Pregunta 7  ¿Cuál ha sido la peor experiencia de su vida?C6 - 2023-05-09 19:31:46.203254
+la peor experiencias de vida fue cuando murió mi abuelo Jorge ya que era una de las personas que más queria en este mundo ya que se parecía mucho a mi y compartimos mucho tiempo juntos y duramentemente tuve que verlo muerto en la cama algo que nunca pensé ver mi vida ni olvidare- 2023-05-09 19:32:25.909307
+Nodo Detector mentiras responde>: Es mentira  - 2023-05-09 19:32:26.219760
+Pregunta 8  Si usted pudiera defraudar impuestos sin que nadie se enterara ¿Lo haría?C7 - 2023-05-09 19:32:31.435228
+es algo que nunca haría ya que es dinero de gente que con mucho esfuerzo tiene que aportar al Estado para que este cumpla con todos los servicios que esté debería cubrir y hacer llegar a las personas pienso que el dinero debería ganarse con esfuerzo y con trabajo honrado y usando la inteligencia - 2023-05-09 19:33:25.919978
+Nodo Detector mentiras responde>: Es mentira  - 2023-05-09 19:33:26.288901
+Pregunta 9  Cuente una experiencia en la que haya mentido sin que nadie se enteraraC8 - 2023-05-09 19:33:31.211914
+una de las cosas que mentido y casi nadie se entera es que cuando salgo con mis amigos y me quedo a dormir digo que me quedo en la casa de ellos toda la noche y a veces no es verdad A veces salgo ala calle a fiestas o andar por ahí todo por no preocupar a mis padres- 2023-05-09 19:35:02.389099
+Nodo Detector mentiras responde>: Es mentira  - 2023-05-09 19:35:02.675850
+Pregunta 10  ¿Que es lo que opina sobre las aseguradoras de carros?C9 - 2023-05-09 19:35:06.980809
+pienso que las aseguradoras son una buena opción para en caso de que los autos sufran algún daño estas puedan cubrir todos los gastos O al menos la mayoría de los mismos pero algunos casos tienen politicas maliciosas que hacen que algunas veces estas no se hagan responsables del accidente - 2023-05-09 19:36:05.586790
+Nodo Detector mentiras responde>: Es mentira  - 2023-05-09 19:36:05.974877
+Has terminado el cuestionario 1N0 - 2023-05-09 19:36:05.982538
+salir cuestionario 1 - 2023-05-09 19:36:21.141781
+salir cuestionario 1N0 - 2023-05-09 19:36:21.484718
+terminar - 2023-05-09 19:36:46.077758
+terminarN0 - 2023-05-09 19:36:46.429238
+hola hola hola - 2023-05-10 14:19:25.995228
+hola hola holaN0 - 2023-05-10 14:19:26.246287
+Mario bunge - 2023-06-05 14:19:16.934397
+Mario bungeN0 - 2023-06-05 14:19:17.021821
+cuestionario 1 - 2023-06-05 14:19:51.140651
+Cuestionario uno. Pregunta 1.  ¿Cual es su recuerdo mas vivido?C0 - 2023-06-05 14:19:51.211974
+cuestionario 1 - 2023-06-05 14:20:20.125400
+Cuestionario uno. Pregunta 1.  ¿Cual es su recuerdo mas vivido?C0 - 2023-06-05 14:20:20.215463
+cuestionario 1 - 2023-06-05 14:20:35.386461
+cuestionario 1 - 2023-06-05 14:21:00.173203
+cuestionario 1 - 2023-06-05 14:21:15.025158
+cuestionario 1 - 2023-06-05 14:21:41.471045
+cuestionario 1 - 2023-06-05 14:21:57.840326
+cuestionario 1 - 2023-06-05 14:22:28.056115
+Cuestionario uno. Pregunta 1.  ¿Cual es su recuerdo mas vivido?C0 - 2023-06-05 14:22:28.151879
+cuestionario 1 - 2023-06-05 14:23:35.820617
+Cuestionario uno. Pregunta 1.  ¿Cual es su recuerdo mas vivido?C0 - 2023-06-05 14:23:35.923995
+hello - 2023-06-06 15:32:24.214764
+helloN0 - 2023-06-06 15:32:24.390397
+hola paper - 2023-06-06 15:41:38.535063
+hola paperN0 - 2023-06-06 15:41:38.705627
+cuestionario Uno - 2023-06-06 15:43:53.089896
+cuestionario UnoN0 - 2023-06-06 15:43:53.255129
+cuestionario Uno - 2023-06-07 14:59:20.073004
+cuestionario UnoN0 - 2023-06-07 14:59:20.245741
+cuestionario Uno - 2023-06-07 15:00:02.272839
+cuestionario UnoN0 - 2023-06-07 15:00:02.604404
+cuestionario Uno - 2023-06-07 15:01:12.061250
+cuestionario UnoN0 - 2023-06-07 15:01:12.237192
+cuestionario Uno - 2023-06-07 15:04:28.385504
+Cuestionario uno. Pregunta 1.  ¿Cual es su recuerdo mas vivido?C0 - 2023-06-07 15:04:28.593398
+cuestionario Uno - 2023-06-07 15:11:12.736592
+Cuestionario uno. Pregunta 1.  ¿Cual es su recuerdo mas vivido?C0 - 2023-06-07 15:11:12.959870
+cuestionario Uno - 2023-06-12 13:47:53.991775
+Cuestionario uno. Pregunta 1.  ¿Cual es su recuerdo mas vivido?C0 - 2023-06-12 13:47:54.403859
+cuestionario Uno - 2023-06-12 13:49:48.716319
+Cuestionario uno. Pregunta 1.  ¿Cual es su recuerdo mas vivido?C0 - 2023-06-12 13:49:49.232548
+cuestionario 1 - 2023-06-12 14:01:02.544231
+cuestionario 1N0 - 2023-06-12 14:01:03.073524
+visionario 1 - 2023-06-12 14:03:50.703143
+visionario 1N0 - 2023-06-12 14:03:51.273488
+cuestionario 1 - 2023-06-12 14:04:19.689829
+Cuestionario uno. Pregunta 1.  ¿Cual es su recuerdo mas vivido?C0 - 2023-06-12 14:04:20.197137
+cuando me gradué de la universidad - 2023-06-12 14:04:38.023183
+Nodo Detector mentiras responde>: Es verdad  - 2023-06-12 14:04:43.840590
+Pregunta 2  ¿Qué es lo que menos le gusta de usted?C1 - 2023-06-12 14:04:45.477564
+no me gusta comer vegetales - 2023-06-12 14:05:01.476719
+no me gusta comer vegetales porque me gustan comer más los dulces - 2023-06-12 14:05:20.936628
+Nodo Detector mentiras responde>: Es mentira  - 2023-06-12 14:05:21.216441
+Pregunta 3  ¿Bajo qué circunstancias mentiría?C2 - 2023-06-12 14:05:22.011323
+circunstancias en las que me tenga que salvar el pellejo - 2023-06-12 14:05:37.528064
+Nodo Detector mentiras responde>: Es mentira  - 2023-06-12 14:05:37.907351
+Pregunta 4  ¿Qué recuerda de su padre?C3 - 2023-06-12 14:05:40.040351
+bueno que me sabía a mandar al colegio con él - 2023-06-12 14:05:53.505482
+Nodo Detector mentiras responde>: Es mentira  - 2023-06-12 14:05:53.787436
+Pregunta 5  ¿Qué recuerda de su madre?C4 - 2023-06-12 14:05:55.793155
+las la cocina que hacía mi mamá los platos típicos Cuenca - 2023-06-12 14:06:09.686996
+Nodo Detector mentiras responde>: Es mentira  - 2023-06-12 14:06:10.045777
+Pregunta 6  ¿Cuál ha sido la mejor experiencia de su vida?C5 - 2023-06-12 14:06:11.158762
+mejor experiencia de mi vida sido salir de la universidad - 2023-06-12 14:06:25.971588
+Nodo Detector mentiras responde>: Es mentira  - 2023-06-12 14:06:26.252099
+Pregunta 7  ¿Cuál ha sido la peor experiencia de su vida?C6 - 2023-06-12 14:06:28.934481
+experiencia de mi vida ha sido salir de la universidad - 2023-06-12 14:06:42.460246
+Nodo Detector mentiras responde>: Es mentira  - 2023-06-12 14:06:42.847899
+Pregunta 8  Si usted pudiera defraudar impuestos sin que nadie se enterara ¿Lo haría?C7 - 2023-06-12 14:06:44.798922
+mucha plata y se fueron Esta sí - 2023-06-12 14:06:59.359038
+Nodo Detector mentiras responde>: Es mentira  - 2023-06-12 14:06:59.642238
+Pregunta 9  Cuente una experiencia en la que haya mentido sin que nadie se enteraraC8 - 2023-06-12 14:07:00.357293
+ccent expresionismo - 2023-06-12 14:07:23.631447
+tuve que mentir para poder pasar el ciclo si no iba a perder un año - 2023-06-12 14:08:01.115257
+Nodo Detector mentiras responde>: Es verdad  - 2023-06-12 14:08:01.360966
+Pregunta 10  ¿Que es lo que opina sobre las aseguradoras de carros?C9 - 2023-06-12 14:08:03.365507
+de las aseguradoras que - 2023-06-12 14:08:18.218116
+recuerdo que - 2023-06-12 14:08:40.441523
+buenas vamos Sí por favor - 2023-06-12 14:08:55.292019
+muy buenos días qué tal cómo está cómo ha pasado - 2023-06-12 14:09:13.111586
+Nodo Detector mentiras responde>: Es mentira  - 2023-06-12 14:09:13.486333
+Has terminado el cuestionario 1N0 - 2023-06-12 14:09:13.495009
