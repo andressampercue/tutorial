@@ -164,7 +164,7 @@ include_directories(
 ## in contrast to setup.py, you can choose the destination
  catkin_install_python(PROGRAMS
    scripts/deteccionMentira.py  scripts/chatbotSpecific.py scripts/chatBotS.py
-   scripts/cuestionario1.py
+   scripts/cuestionario1.py scripts/audio_generation.py #scripts/file_transfer.py
    DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
  )
 

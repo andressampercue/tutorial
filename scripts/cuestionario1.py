@@ -7,7 +7,6 @@ import rospy
 from std_msgs.msg import String
 
 from tutorial.srv import Cuestionario1,Cuestionario1Response
-import rospy
 import os
 
 def escribirArchivo(texto):

@@ -72,7 +72,7 @@ class ssh_file_transfer:
 
         """
 
-        remote_path = f'/home/{self.USERNAME}/recordings/chatbot/user_audio/ppp.wav'
+        remote_path = f'/home/{self.USERNAME}/recordings/chatbot/u_audio.wav'
         output_file = '/home/andres/catkin_ws/src/tutorial/audio_files/u_audio.wav'
 
         sftp_client = self.CLIENT.open_sftp()

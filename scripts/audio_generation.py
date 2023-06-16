@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2
 # -*- coding: utf-8 -*-
 
 from sunau import AUDIO_FILE_ENCODING_LINEAR_32
@@ -8,6 +8,7 @@ import subprocess
 import time
 from naoqi import ALProxy
 from ftplib import FTP
+#import rospy
 
 class Pepper_comunications():
 
@@ -35,7 +36,7 @@ class Pepper_comunications():
             print('Error connecting to robot')
 
         #file_path1 = "~/Documents/audio/test.wav"
-        file_path = "/home/nao/recordings/chatbot/user_audio/u_audio.wav" #u_audio es el nombre del archivo de audio generado por grabacion desde pepper
+        file_path = "/home/nao/recordings/chatbot/u_audio.wav" #u_audio es el nombre del archivo de audio generado por grabacion desde pepper
 
         sample_rate = 48000
         channels = [0,0,1,0] #Only record sound of the third microphone
@@ -46,6 +47,7 @@ class Pepper_comunications():
         ar.stopMicrophonesRecording()
         ar.startMicrophonesRecording(file_path, "wav", sample_rate, channels)
         leds.rotateEyes(0x000000FF,1,5)
+        time.sleep(5)
         ar.stopMicrophonesRecording()
         leds.on('FaceLeds')
 
@@ -98,7 +100,7 @@ if __name__ == '__main__':
 
     comunication = Pepper_comunications("172.16.224.63")
     print("instanciado objeto")
-    #comunication.client_to_pepper()
+    comunication.client_to_pepper()
     comunication.pepper_to_client()
 
 

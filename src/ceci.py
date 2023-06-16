@@ -11,6 +11,10 @@ import random
 import mutagen
 import tkinter as tk
 from datetime import datetime
+import execnet
+import paramiko
+import sys
+import getpass
 
 pygame.mixer.init()
 pygame.mixer.init(frequency=44100)
@@ -59,7 +63,7 @@ def abrir_archivo():
     global direccion, pos, n , cancion_actual
     pos = 0
     n = 0
-    direccion = '/home/andres/catkin_ws/src/tutorial/audio_files/user_audio/u_audio.wav'    
+    direccion = '/home/andres/catkin_ws/src/tutorial/audio_files/chatbot_audio.wav'    
     
     n = len (direccion)
     print (direccion+ " abre el sample")
@@ -232,7 +236,6 @@ class MyLabel2(Label):
         self.cancel = self.after(self.delay, self.play)     
 
 ventana = Tk()
-
 ventana.title('CHATBOT CECI')
 ventana.config(background = 'white')
 
@@ -313,7 +316,10 @@ def nexus():
             # for testing purposes, we're just using the default API key
             # to use another API key, use `r.recognize_google(audio, key="GOOGLE_SPEECH_RECOGNITION_API_KEY")`
             # instead of `r.recognize_google(audio)`
-
+            pepper_listen()
+            ssh = ssh_file_transfer('172.16.224.63')
+            #truueeeeeee
+            ssh.getting_audio_from_pepper()
             audio = sr.AudioFile("/home/andres/catkin_ws/src/tutorial/audio_files/u_audio.wav") #read audio object and transcribe
 
             with audio as source:
@@ -365,11 +371,11 @@ def nexus():
                     myobj = gTTS(text=respuestaChatBot, lang=language, slow=False)
                     
                     # Saving the converted audio in a mp3 file named
-                    myobj.save("audio.mp3")
+                    myobj.save("/home/andres/catkin_ws/src/tutorial/audio_files/chatbot_audio.mp3")
 
                     # files                                                                         
-                    src = "audio.mp3"
-                    dst = "audio.wav"
+                    src = "/home/andres/catkin_ws/src/tutorial/audio_files/chatbot_audio.mp3"
+                    dst = "/home/andres/catkin_ws/src/tutorial/audio_files/chatbot_audio.wav"
 
                     # convert wav to mp3                                                            
                     sound = AudioSegment.from_mp3(src)
@@ -378,17 +384,19 @@ def nexus():
                     # Playing the converted file
                     abrir_archivo()
                     iniciar()
+                    ssh.sending_audio_to_pepper()
+                    pepper_speak()
                 else:
                     respuestaChatBot = "La respuesta debe tener al menos 25 palabras, por favor repita"
                     print("audio que envia a grabar "+respuestaChatBot)
                     myobj = gTTS(text=respuestaChatBot, lang=language, slow=False)
                         
                     # Saving the converted audio in a mp3 file named
-                    myobj.save("audio.mp3")
+                    myobj.save("/home/andres/catkin_ws/src/tutorial/audio_files/chatbot_audio.mp3")
 
                     # files                                                                         
-                    src = "audio.mp3"
-                    dst = "audio.wav"
+                    src = "/home/andres/catkin_ws/src/tutorial/audio_files/chatbot_audio.mp3"
+                    dst = "/home/andres/catkin_ws/src/tutorial/audio_files/chatbot_audio.wav"
 
                     # convert wav to mp3                                                            
                     sound = AudioSegment.from_mp3(src)
@@ -396,7 +404,9 @@ def nexus():
 
                     # Playing the converted file
                     abrir_archivo()
-                    iniciar()    
+                    iniciar()  
+                    ssh.sending_audio_to_pepper()
+                    pepper_speak()  
             else:
                     respuestaChatBot = "%s"%(chatBot_client(dice+variable))#se envia una N para hacer referencia que esta en el CHAT NORMAL
                     escribirArchivo(respuestaChatBot+ " - " + str(datetime.today()))
@@ -429,11 +439,11 @@ def nexus():
                     myobj = gTTS(text=respuestaChatBot, lang=language, slow=False)
                     
                     # Saving the converted audio in a mp3 file named
-                    myobj.save("/home/andres/catkin_ws/src/tutorial/audio_files/user_audio/chatbot_audio.mp3")
+                    myobj.save("/home/andres/catkin_ws/src/tutorial/audio_files/chatbot_audio.mp3")
 
                     # files                                                                         
-                    src = "chatbot_audio.mp3"
-                    dst = "chatbot_audio.wav"
+                    src = "/home/andres/catkin_ws/src/tutorial/audio_files/chatbot_audio.mp3"
+                    dst = "/home/andres/catkin_ws/src/tutorial/audio_files/chatbot_audio.wav"
 
                     # convert wav to mp3                                                            
                     sound = AudioSegment.from_mp3(src)
@@ -442,25 +452,32 @@ def nexus():
                     # Playing the converted file
                     abrir_archivo()
                     iniciar()
+                    ssh.sending_audio_to_pepper()
+                    pepper_speak()
 
         except sr.UnknownValueError:
             print("Google Speech Recognition could not understand audio")
             myobj = gTTS(text="Lo siento, pero no entiendo. Puede repetir?", lang='es', slow=False)
 
             # Saving the converted audio in a mp3 file name
-            myobj.save("audio.mp3")
+            myobj.save("/home/andres/catkin_ws/src/tutorial/audio_files/chatbot_audio.mp3")
             
             # files                                                                         
-            src = "audio.mp3"
-            dst = "audio.wav"
+            src = "/home/andres/catkin_ws/src/tutorial/audio_files/chatbot_audio.mp3"
+            dst = "/home/andres/catkin_ws/src/tutorial/audio_files/chatbot_audio.wav"
 
             # convert wav to mp3                                                            
             sound = AudioSegment.from_mp3(src)
             sound.export(dst, format="wav")
 
-            # Playing the converted file
             abrir_archivo()
-            iniciar()#Iniciamos la animacion (interfaz grafica)            
+            iniciar()
+            ssh.sending_audio_to_pepper()
+            pepper_speak()
+
+            # Playing the converted file
+            #abrir_archivo()
+            #iniciar()#Iniciamos la animacion (interfaz grafica)            
         except sr.RequestError as e:
             print("Could not request results from Google Speech Recognition service; {0}".format(e))
 
@@ -524,7 +541,171 @@ def nexusTexto():
 
         # Playing the converted file
         abrir_archivo()
-        iniciar()         
+        iniciar()   
+
+def pepper_listen():
+    gw = execnet.makegateway("popen//python=python2.7")
+    channel = gw.remote_exec("""
+        import qi
+        import time
+        from naoqi import ALProxy
+        session = qi.Session()
+
+        try:
+            session.connect("tcp://172.16.224.63:9559")
+            print('Succesfull connecting')
+        except:
+            print('Error connecting to robot')
+
+        file_path = "/home/nao/recordings/chatbot/u_audio.wav" #u_audio es el nombre del archivo de audio generado por grabacion desde pepper
+
+        sample_rate = 48000
+        channels = [0,0,1,0] #Only record sound of the third microphone
+        leds = ALProxy("ALLeds", "172.16.224.63", 9559) 
+
+        ar = ALProxy("ALAudioRecorder","172.16.224.63", 9559)
+        ar.stopMicrophonesRecording()
+        ar.startMicrophonesRecording(file_path, "wav", sample_rate, channels)
+        print("Pepper listening")
+        leds.rotateEyes(0x000000FF,1,5)
+        leds.on('FaceLeds')
+        time.sleep(5)
+        ar.stopMicrophonesRecording()
+        conf = "Listening OK"
+
+        channel.send(conf)
+    """)
+    channel.send(None)
+    print (channel.receive())
+
+def pepper_speak():
+     
+    gw = execnet.makegateway("popen//python=python2.7")
+    channel = gw.remote_exec("""
+        import qi
+        import time
+        from naoqi import ALProxy
+        session = qi.Session()
+
+        session = qi.Session()
+
+        try:
+            session.connect("tcp://172.16.224.63:9559")
+            print('Succesfull connecting')
+        except:
+            print('Error connecting to robot')
+
+        file_path = "/home/nao/recordings/chatbot/chatbot_audio.wav" #u_audio es el nombre del archivo de audio generado por grabacion desde pepper
+        aup = ALProxy("ALAudioPlayer", "172.16.224.63", 9559)
+        aup.post.playFile(file_path)
+
+        animation_player_service = session.service("ALAnimationPlayer")
+        print("Pepper speaking")
+
+        # play an animation, this will return when the animation is finished
+        #animation_player_service.run("animations/Stand/Emotions/Positive/Happy_4")
+        #animation_player_service.run("animations/Stand/Emotions/Positive/Peaceful_1")
+        #animation_player_service.run("animations/Stand/Gestures/But_1")
+        #animation_player_service.run("animations/Stand/Gestures/Choice_1")
+        #animation_player_service.run("animations/Stand/Gestures/Everything_1")
+        #animation_player_service.run("animations/Stand/Gestures/Everything_3")
+        #animation_player_service.run("animations/Stand/Gestures/Everything_4")
+        animation_player_service.run("animations/Stand/Gestures/Explain_1")
+        animation_player_service.run("animations/Stand/Gestures/Explain_2")
+        animation_player_service.run("animations/Stand/Gestures/Explain_3")
+
+        conf = "Speaking OK"
+
+        channel.send(conf)
+    """)
+    channel.send(None)
+    print (channel.receive())
+
+class ssh_file_transfer:
+
+    def __init__(self, robot_ip):
+
+        self.robot_ip = robot_ip
+        self.USERNAME = 'nao'
+        self.PASSWORD = 'pepper'
+        self.CLIENT = None
+
+        try:
+
+            # Conectamos por ssh
+
+            self.CLIENT = paramiko.SSHClient()
+            self.CLIENT.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+            self.CLIENT.load_system_host_keys()
+            self.CLIENT.connect( hostname = self.robot_ip , username = self.USERNAME , password = self.PASSWORD )
+            print("Conectado")
+
+        except:
+
+            print('Error en la conexión')
+
+            sys.exit(1)
+    
+    
+
+    def getting_audio_from_pepper(self):
+            
+        
+
+        """
+        
+        try:
+
+            shell = self.CLIENT.invoke_shell()
+
+            try:
+
+                # Ejecutamos el comando remoto
+
+                stdin, stdout, stderr = self.CLIENT.exec_command( 'ls -l' , bufsize = -1 , timeout = None , get_pty = True , environment = None)
+
+                # Mostramos la salida estandar línea por línea
+
+                print(stdout.read().decode())
+
+            except:
+
+                print('Error: al ejecutar el comando')
+
+                sys.exit(1)
+
+        except:
+
+            print('Error en la conexión por ssh')
+
+            sys.exit(1)
+
+        # Cerramos el shell
+
+        shell.close()
+
+        # ------------------------------------------------------------------
+
+        """
+
+        remote_path = f'/home/{self.USERNAME}/recordings/chatbot/u_audio.wav'
+        output_file = '/home/andres/catkin_ws/src/tutorial/audio_files/u_audio.wav'
+
+        sftp_client = self.CLIENT.open_sftp()
+        sftp_client.get(remote_path, output_file)
+
+        #self.CLIENT.close()
+
+
+    def sending_audio_to_pepper(self):
+
+        remote_path = f'/home/{self.USERNAME}/recordings/chatbot/chatbot_audio.wav'
+        source_path = '/home/andres/catkin_ws/src/tutorial/audio_files/chatbot_audio.wav'
+
+        sftp_client = self.CLIENT.open_sftp()
+        sftp_client.put(source_path, remote_path)
+
+        self.CLIENT.close()
 
 
 if __name__ == '__main__':
