@@ -104,8 +104,9 @@ def chatb(req):
                 print('NEXUS-BOT: ',responseGeneral)
                 
                 response = str(peticionGeneral)
-                response1 = "cuestionario Uno"
-                response2 = "cuestionario 1"   
+                response1 = "Cuestionario uno"
+                response2 = "Cuestionario 1"   
+                print("u_audio_text:", response)
                         
                 if response == response1 or response == response2:
                     print("<<<<<<<<<<<<<<< Bienvenido al cuestionario 1 >>>>>>>>>>>>>>>>>>>>")
@@ -118,9 +119,7 @@ def chatb(req):
                     estaEnElCuestionario = False
                     rt = str(response+'N0')
                     return str(rt)#devolvemos la respuesta de tipo string
-
-            
-                
+      
             
 def chatBot_server():
     #bot.storage.drop()

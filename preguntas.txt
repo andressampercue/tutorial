@@ -1,0 +1,10 @@
+        0: "Pregunta 1.  ¿Cual es su recuerdo mas vivido?", direccion IP: https://i.imgur.com/GuYi7to.jpg
+        1: "Pregunta 2  ¿Qué es lo que menos le gusta de usted?", direccion IP: https://i.imgur.com/6lkuMeC.jpg
+        2: "Pregunta 3  ¿Bajo qué circunstancias mentiría?", direccion IP: https://i.imgur.com/ig2j2tY.jpg
+        3: "Pregunta 4  ¿Qué recuerda de su padre?", direcciones IP: https://i.imgur.com/KPNFMZa.jpg 
+        4: "Pregunta 5  ¿Qué recuerda de su madre?", direcciones IP: https://i.imgur.com/kipZ5MH.jpg
+        5: "Pregunta 6  ¿Cuál ha sido la mejor experiencia de su vida?", direccion Ip: https://i.imgur.com/YwQUj5O.jpg
+        6: "Pregunta 7  ¿Cuál ha sido la peor experiencia de su vida?", direccion IP: https://i.imgur.com/QvQiphe.jpg
+        7: "Pregunta 8  Si usted pudiera defraudar impuestos sin que nadie se enterara ¿Lo haría?", direccion IP: https://i.imgur.com/OdY5jNr.jpg
+        8: "Pregunta 9  Cuente una experiencia en la que haya mentido sin que nadie se enterara", direccion IP: https://i.imgur.com/ceGUgbm.jpg
+        9: "Pregunta 10  ¿Que es lo que opina sobre las aseguradoras de carros?", direccion IP: https://i.imgur.com/hUlV8Mj.jpg

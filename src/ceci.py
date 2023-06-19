@@ -283,6 +283,9 @@ from tutorial.srv import ChatBotVariables
 # play the converted audio
 import os
 
+import openai
+
+global count_animation 
 
 #para el nodo servidor del cuestionario
 def chatBot_client(x):
@@ -299,7 +302,7 @@ def nexus():
         
         global variable #para manejar la variable que determina si nos encontramos dentro o fuera del chatbot
         # obtain audio from the microphone
-        r = sr.Recognizer()
+        #r = sr.Recognizer()
         #print(sr.Microphone.list_microphone_names())
 
         #for index, name in enumerate(sr.Microphone.list_microphone_names()):
@@ -317,16 +320,23 @@ def nexus():
             # to use another API key, use `r.recognize_google(audio, key="GOOGLE_SPEECH_RECOGNITION_API_KEY")`
             # instead of `r.recognize_google(audio)`
             pepper_listen()
-            ssh = ssh_file_transfer('172.16.224.63')
+            ssh = ssh_file_transfer('172.16.224.164')
             #truueeeeeee
             ssh.getting_audio_from_pepper()
-            audio = sr.AudioFile("/home/andres/catkin_ws/src/tutorial/audio_files/u_audio.wav") #read audio object and transcribe
+            #audio = sr.AudioFile("/home/andres/catkin_ws/src/tutorial/audio_files/u_audio.wav") #read audio object and transcribe
+            openai.api_key = "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"
 
-            with audio as source:
-
-                audio = r.record(source)  
-                print("Analizando audio")                
-                dice = r.recognize_google(audio)
+            with open("/home/andres/catkin_ws/src/tutorial/audio_files/u_audio.wav", "rb") as audio_file:
+                dice = openai.Audio.transcribe(
+                file = audio_file,
+                model = "whisper-1",
+                response_format="text",
+                language="es"
+            )
+            
+            dice = dice.strip()
+            print("Analizando audio")                
+            #dice = r.recognize_google(audio)
 
             #dice = r.recognize_google(voz,language='es-EC')
             print("Google Speech Recognition thinks you said> " + dice)
@@ -340,6 +350,9 @@ def nexus():
 
             if (variable!="N0"):
                 if (numeroPalabras > 5):
+
+                    count_animation = 0
+
                     respuestaChatBot = "%s"%(chatBot_client(dice+variable))#se envia una N para hacer referencia que esta en el CHAT NORMAL
                     escribirArchivo(respuestaChatBot+ " - " + str(datetime.today()))
                     with open('auditoria', 'w') as f:
@@ -385,7 +398,9 @@ def nexus():
                     abrir_archivo()
                     iniciar()
                     ssh.sending_audio_to_pepper()
+                    count_animation += 1
                     pepper_speak()
+
                 else:
                     respuestaChatBot = "La respuesta debe tener al menos 25 palabras, por favor repita"
                     print("audio que envia a grabar "+respuestaChatBot)
@@ -479,71 +494,10 @@ def nexus():
             #abrir_archivo()
             #iniciar()#Iniciamos la animacion (interfaz grafica)            
         except sr.RequestError as e:
-            print("Could not request results from Google Speech Recognition service; {0}".format(e))
-
-
-def nexusTexto():    
-        
-        global variable #para manejar la variable que determina si nos encontramos dentro o fuera del chatbot
-        global diceTexto #para manejar la variable que contiene el texto ingresado por la caja de texto
-        # obtain el texto desde el teclado
-        #diceTexto = "es lo que se manda desde la caja de texto"
-        
-        #diceTexto = chatTexto.get()
-        diceTexto = "dice texto"
-
-        #chatTexto.configure(state='normal')
-        #chatTexto.delete(0,'end')        
-
-        print("Lo que se envia como texto>>> " + diceTexto+variable)
-
-        escribirArchivo(diceTexto+ " - " + str(datetime.today()))
-        
-
-        respuestaChatBot = "%s"%(chatBot_client(diceTexto+variable))#se envia una N para hacer referencia que esta en el CHAT NORMAL
-        respuestaChatBot = "respuesta"+variable
-        print(" Respuesta chatbot>>>>>>>>" + respuestaChatBot )
-
-        escribirArchivo(respuestaChatBot+ " - " + str(datetime.today()))
-
-        estaCues= respuestaChatBot[len(respuestaChatBot)-2]
-        numeroPregunta= int(respuestaChatBot[len(respuestaChatBot)-1])
-        respuestaChatBot= respuestaChatBot[:len(respuestaChatBot)-2]
-
-        if (estaCues=="N"):#para ver si esta en el cuestionario
-            variable = "N0"
-        else:
-            numeroPregunta = numeroPregunta+1
-            variable = "C"+str(numeroPregunta)
-            if numeroPregunta == 10:
-                variable = "N1"
-
-        # Language in which you want to convert
-        language = 'es' 
-
-        # Passing the text and language to the engine,
-        # here we have marked slow=False. Which tells
-        # the module that the converted audio should
-        # have a high speed
-        print("audio que envia a grabar "+respuestaChatBot)
-        myobj = gTTS(text=respuestaChatBot, lang=language, slow=False)
-            
-        # Saving the converted audio in a mp3 file named
-        myobj.save("audio.mp3")
-
-        # files                                                                         
-        src = "audio.mp3"
-        dst = "audio.wav"
-
-        # convert wav to mp3                                                            
-        sound = AudioSegment.from_mp3(src)
-        sound.export(dst, format="wav")
-
-        # Playing the converted file
-        abrir_archivo()
-        iniciar()   
+            print("Could not request results from Google Speech Recognition service; {0}".format(e))  
 
 def pepper_listen():
+
     gw = execnet.makegateway("popen//python=python2.7")
     channel = gw.remote_exec("""
         import qi
@@ -552,7 +506,7 @@ def pepper_listen():
         session = qi.Session()
 
         try:
-            session.connect("tcp://172.16.224.63:9559")
+            session.connect("tcp://172.16.224.164:9559")
             print('Succesfull connecting')
         except:
             print('Error connecting to robot')
@@ -560,14 +514,14 @@ def pepper_listen():
         file_path = "/home/nao/recordings/chatbot/u_audio.wav" #u_audio es el nombre del archivo de audio generado por grabacion desde pepper
 
         sample_rate = 48000
-        channels = [0,0,1,0] #Only record sound of the third microphone
-        leds = ALProxy("ALLeds", "172.16.224.63", 9559) 
+        channels = [0,0,0,1] #Only record sound of the third microphone
+        leds = ALProxy("ALLeds", "172.16.224.164", 9559) 
 
-        ar = ALProxy("ALAudioRecorder","172.16.224.63", 9559)
+        ar = ALProxy("ALAudioRecorder","172.16.224.164", 9559)
         ar.stopMicrophonesRecording()
         ar.startMicrophonesRecording(file_path, "wav", sample_rate, channels)
         print("Pepper listening")
-        leds.rotateEyes(0x000000FF,1,5)
+        leds.rotateEyes(0x000000FF,1,10)
         leds.on('FaceLeds')
         time.sleep(5)
         ar.stopMicrophonesRecording()
@@ -590,13 +544,14 @@ def pepper_speak():
         session = qi.Session()
 
         try:
-            session.connect("tcp://172.16.224.63:9559")
+            session.connect("tcp://172.16.224.164:9559")
             print('Succesfull connecting')
         except:
             print('Error connecting to robot')
-
+        
+        #count_animation = channel.receive()
         file_path = "/home/nao/recordings/chatbot/chatbot_audio.wav" #u_audio es el nombre del archivo de audio generado por grabacion desde pepper
-        aup = ALProxy("ALAudioPlayer", "172.16.224.63", 9559)
+        aup = ALProxy("ALAudioPlayer", "172.16.224.164", 9559)
         aup.post.playFile(file_path)
 
         animation_player_service = session.service("ALAnimationPlayer")
@@ -610,6 +565,7 @@ def pepper_speak():
         #animation_player_service.run("animations/Stand/Gestures/Everything_1")
         #animation_player_service.run("animations/Stand/Gestures/Everything_3")
         #animation_player_service.run("animations/Stand/Gestures/Everything_4")
+        
         animation_player_service.run("animations/Stand/Gestures/Explain_1")
         animation_player_service.run("animations/Stand/Gestures/Explain_2")
         animation_player_service.run("animations/Stand/Gestures/Explain_3")
@@ -618,6 +574,7 @@ def pepper_speak():
 
         channel.send(conf)
     """)
+    #channel.send(count_animation)
     channel.send(None)
     print (channel.receive())
 
@@ -643,51 +600,10 @@ class ssh_file_transfer:
         except:
 
             print('Error en la conexión')
-
             sys.exit(1)
     
-    
-
     def getting_audio_from_pepper(self):
             
-        
-
-        """
-        
-        try:
-
-            shell = self.CLIENT.invoke_shell()
-
-            try:
-
-                # Ejecutamos el comando remoto
-
-                stdin, stdout, stderr = self.CLIENT.exec_command( 'ls -l' , bufsize = -1 , timeout = None , get_pty = True , environment = None)
-
-                # Mostramos la salida estandar línea por línea
-
-                print(stdout.read().decode())
-
-            except:
-
-                print('Error: al ejecutar el comando')
-
-                sys.exit(1)
-
-        except:
-
-            print('Error en la conexión por ssh')
-
-            sys.exit(1)
-
-        # Cerramos el shell
-
-        shell.close()
-
-        # ------------------------------------------------------------------
-
-        """
-
         remote_path = f'/home/{self.USERNAME}/recordings/chatbot/u_audio.wav'
         output_file = '/home/andres/catkin_ws/src/tutorial/audio_files/u_audio.wav'
 

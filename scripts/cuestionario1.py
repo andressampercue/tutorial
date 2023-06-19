@@ -22,7 +22,7 @@ def handle_add_two_ints(req):
 
     switcher = {
         0: "Pregunta 1.  ¿Cual es su recuerdo mas vivido?",
-        1: "Pregunta 2  ¿Qué es lo que menos le gusta de usted?",
+        1: "Pregunta 2  ¿Qué es lo que menos que le gusta de usted?",
         2: "Pregunta 3  ¿Bajo qué circunstancias mentiría?",
         3: "Pregunta 4  ¿Qué recuerda de su padre?",
         4: "Pregunta 5  ¿Qué recuerda de su madre?",

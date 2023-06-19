@@ -180,3 +180,87 @@ Pregunta 10  ¿Que es lo que opina sobre las aseguradoras de carros?C9 - 2023-06
 La Nueva impresora 3D meal imprimi Largo infinito - 2023-06-16 16:28:23.186578
 Nodo Detector mentiras responde>: Es verdad  - 2023-06-16 16:28:23.532440
 Has terminado el cuestionario 1N0 - 2023-06-16 16:28:23.540735
+cuestionario Uno - 2023-06-19 13:56:34.580602
+Cuestionario uno. Pregunta 1.  ¿Cual es su recuerdo mas vivido?C0 - 2023-06-19 13:56:35.492371
+me recuerdo Mas vivido es cuando esta en Una computadora - 2023-06-19 13:57:06.901024
+Nodo Detector mentiras responde>: Es mentira  - 2023-06-19 13:57:09.180578
+Pregunta 2  ¿Qué es lo que menos le gusta de usted?C1 - 2023-06-19 13:57:12.544278
+estaba paseando elf in the Semana por El Centro De - 2023-06-19 13:57:41.708824
+Nodo Detector mentiras responde>: Es mentira  - 2023-06-19 13:57:41.985899
+Pregunta 3  ¿Bajo qué circunstancias mentiría?C2 - 2023-06-19 13:57:44.635952
+estoy buscando sonnailles dentro de la computadora - 2023-06-19 13:58:12.685644
+Nodo Detector mentiras responde>: Es mentira  - 2023-06-19 13:58:13.092017
+Pregunta 4  ¿Qué recuerda de su padre?C3 - 2023-06-19 13:58:15.624603
+El recuerdo Que Mas recuerdo De Mi Papa ES - 2023-06-19 13:58:48.242002
+Nodo Detector mentiras responde>: Es mentira  - 2023-06-19 13:58:48.528207
+Pregunta 5  ¿Qué recuerda de su madre?C4 - 2023-06-19 13:58:52.658405
+Western radio Uno - 2023-06-19 14:11:11.982694
+Western radio UnoN0 - 2023-06-19 14:11:12.985971
+ostioneria Uno - 2023-06-19 14:11:41.210601
+ostioneria UnoN0 - 2023-06-19 14:11:42.155657
+cuestionario Uno - 2023-06-19 14:12:37.850229
+Cuestionario uno. Pregunta 1.  ¿Cual es su recuerdo mas vivido?C0 - 2023-06-19 14:12:38.834377
+Lady Gaga - 2023-06-19 14:13:13.851625
+cuestionario Uno - 2023-06-19 14:14:09.966096
+Cuestionario uno. Pregunta 1.  ¿Cual es su recuerdo mas vivido?C0 - 2023-06-19 14:14:10.950641
+hey Google - 2023-06-19 14:14:43.758719
+Cuestionario 1
+ - 2023-06-19 14:46:31.751634
+Cuestionario 1
+ - 2023-06-19 14:49:11.039323
+Cuestionario 1
+N0 - 2023-06-19 14:49:11.997518
+Cuestionario 1
+ - 2023-06-19 14:50:00.311868
+Cuestionario 1
+N0 - 2023-06-19 14:50:01.260182
+Cuestionario 1
+ - 2023-06-19 15:00:51.385965
+Cuestionario 1
+N0 - 2023-06-19 15:00:52.418964
+Cuestionario 1
+ - 2023-06-19 15:10:13.088418
+Cuestionario 1
+N0 - 2023-06-19 15:10:14.110186
+Cuestionario 1
+ - 2023-06-19 15:16:41.173399
+Cuestionario 1
+N0 - 2023-06-19 15:16:42.224109
+Cuestionario 1
+ - 2023-06-19 15:22:02.559951
+Cuestionario 1
+N0 - 2023-06-19 15:22:03.602999
+Cuestionario 1 - 2023-06-19 15:28:49.844635
+Cuestionario uno. Pregunta 1.  ¿Cual es su recuerdo mas vivido?C0 - 2023-06-19 15:28:50.940957
+Mi recuerdo más vivido es cuando estaba sentado en una silla. - 2023-06-19 15:29:20.345855
+Nodo Detector mentiras responde>: Es mentira  - 2023-06-19 15:29:22.272630
+Pregunta 2  ¿Qué es lo que menos le gusta de usted?C1 - 2023-06-19 15:29:25.745322
+Lo que menos me gusta de mí es que no tengo una computadora súper grande como la que tengo en el escritorio de aquí. - 2023-06-19 15:29:55.691515
+Nodo Detector mentiras responde>: Es verdad  - 2023-06-19 15:29:55.965226
+Pregunta 3  ¿Bajo qué circunstancias mentiría?C2 - 2023-06-19 15:30:03.571520
+Yo no mentiría bajo ninguna circunstancia porque nunca miento. - 2023-06-19 15:30:32.147752
+Nodo Detector mentiras responde>: Es verdad  - 2023-06-19 15:30:32.488381
+Pregunta 4  ¿Qué recuerda de su padre?C3 - 2023-06-19 15:30:33.980327
+Lo que recuerdo de mi padre es cuando yo salí al parque con él los fines. - 2023-06-19 15:31:03.119196
+Nodo Detector mentiras responde>: Es mentira  - 2023-06-19 15:31:03.370648
+Pregunta 5  ¿Qué recuerda de su madre?C4 - 2023-06-19 15:31:10.222058
+Cuestionario 1 - 2023-06-19 15:33:08.106608
+Cuestionario uno. Pregunta 1.  ¿Cual es su recuerdo mas vivido?C0 - 2023-06-19 15:33:09.318465
+Mi recuerdo más vivido es cuando el Pepper habló un cierto día viernes a las cuatro de la mañana y un día soleado en la Universidad Católica de Cuenca. - 2023-06-19 15:33:53.246441
+Nodo Detector mentiras responde>: Es verdad  - 2023-06-19 15:33:53.610276
+Pregunta 2  ¿Qué es lo que menos le gusta de usted?C1 - 2023-06-19 15:34:02.962534
+Cuestionario 1 - 2023-06-19 15:35:52.269331
+Cuestionario uno. Pregunta 1.  ¿Cual es su recuerdo mas vivido?C0 - 2023-06-19 15:35:53.411680
+Cuestionario 1 - 2023-06-19 15:39:39.916144
+Cuestionario uno. Pregunta 1.  ¿Cual es su recuerdo mas vivido?C0 - 2023-06-19 15:39:41.090763
+Mi recuerdo mas vivido es cuando el peper no salio un dia miercoles 35 de octubre con un color rojo verde azul en una fresadora de aire y el peper esta parado. - 2023-06-19 15:40:32.921292
+Nodo Detector mentiras responde>: Es mentira  - 2023-06-19 15:40:33.166115
+Pregunta 2  ¿Qué es lo que menos le gusta de usted?C1 - 2023-06-19 15:40:42.486462
+Cuestionario 1 - 2023-06-19 16:07:41.989908
+Cuestionario uno. Pregunta 1.  ¿Cual es su recuerdo mas vivido?C0 - 2023-06-19 16:07:43.185748
+Cuestionario 1 - 2023-06-19 16:11:18.089626
+Cuestionario uno. Pregunta 1.  ¿Cual es su recuerdo mas vivido?C0 - 2023-06-19 16:11:19.285229
+Cuestionario 1 - 2023-06-19 16:12:30.471207
+Cuestionario uno. Pregunta 1.  ¿Cual es su recuerdo mas vivido?C0 - 2023-06-19 16:12:31.688620
+Cuestionario 1 - 2023-06-19 16:13:48.098672
+Cuestionario uno. Pregunta 1.  ¿Cual es su recuerdo mas vivido?C0 - 2023-06-19 16:13:49.363332
