@@ -264,3 +264,111 @@ Cuestionario 1 - 2023-06-19 16:12:30.471207
 Cuestionario uno. Pregunta 1.  ¿Cual es su recuerdo mas vivido?C0 - 2023-06-19 16:12:31.688620
 Cuestionario 1 - 2023-06-19 16:13:48.098672
 Cuestionario uno. Pregunta 1.  ¿Cual es su recuerdo mas vivido?C0 - 2023-06-19 16:13:49.363332
+CUESTIONARIO 1 - 2023-06-20 13:44:17.631990
+CUESTIONARIO 1N0 - 2023-06-20 13:44:19.151704
+cuestionario 1 - 2023-06-20 13:47:12.075155
+Cuestionario uno. Pregunta 1.  ¿Cual es su recuerdo mas vivido?C0 - 2023-06-20 13:47:13.657502
+azul, rojo, tomate, el día sábado, el día viernes, azul, rojo, tomate, hola, chao, uno, dos, tres. - 2023-06-20 13:47:55.758559
+Nodo Detector mentiras responde>: Es mentira  - 2023-06-20 13:47:57.846375
+Pregunta 2  ¿Qué es lo que menos que le gusta de usted?C1 - 2023-06-20 13:48:00.356943
+lo que menos me gusta de mí es levantarme pronto por las mañanas, porque no he dormido nada. - 2023-06-20 13:48:38.121029
+Nodo Detector mentiras responde>: Es mentira  - 2023-06-20 13:48:38.421903
+Pregunta 3  ¿Bajo qué circunstancias mentiría?C2 - 2023-06-20 13:48:44.129444
+cuestionario 1 - 2023-06-20 14:15:03.654497
+Cuestionario uno. Pregunta 1.  ¿Cual es su recuerdo mas vivido?C0 - 2023-06-20 14:15:05.258286
+¿para ver si me muestra después? no, no muestra nada. nada, nada, nada, nada. - 2023-06-20 14:15:52.901787
+Nodo Detector mentiras responde>: Es verdad  - 2023-06-20 14:15:54.973544
+Pregunta 2  ¿Qué es lo que menos que le gusta de usted?C1 - 2023-06-20 14:15:57.595892
+cuestionario 1 - 2023-06-20 14:19:53.272323
+Cuestionario uno. Pregunta 1.  ¿Cual es su recuerdo mas vivido?C0 - 2023-06-20 14:19:54.929131
+vuestroenario 1 - 2023-06-20 14:23:12.285486
+vuestroenario 1N0 - 2023-06-20 14:23:14.029857
+cuestionario 1 - 2023-06-20 14:23:43.240521
+Cuestionario uno. Pregunta 1.  ¿Cual es su recuerdo mas vivido?C0 - 2023-06-20 14:23:44.918299
+cuestionario 1 - 2023-06-20 14:29:29.125325
+Cuestionario uno. Pregunta 1.  ¿Cual es su recuerdo mas vivido?C0 - 2023-06-20 14:29:30.693657
+cuestionario 1. - 2023-06-20 14:36:19.608733
+cuestionario 1.N0 - 2023-06-20 14:36:21.189159
+vuestro corazón. - 2023-06-20 14:37:54.327370
+vuestro corazón.N0 - 2023-06-20 14:37:55.724777
+cuestionario 1 - 2023-06-20 14:38:26.675961
+Cuestionario uno. Pregunta 1.  ¿Cual es su recuerdo mas vivido?C0 - 2023-06-20 14:38:28.144421
+cuestionario 1 - 2023-06-20 14:39:28.787241
+Cuestionario uno. Pregunta 1.  ¿Cual es su recuerdo mas vivido?C0 - 2023-06-20 14:39:30.347373
+cuestionario 1. - 2023-06-20 14:41:25.603211
+cuestionario 1.N0 - 2023-06-20 14:41:27.367492
+cuestionario 1 - 2023-06-20 14:44:51.547883
+Cuestionario uno. Pregunta 1.  ¿Cual es su recuerdo mas vivido?C0 - 2023-06-20 14:44:53.176615
+cuestionario 1. - 2023-06-20 14:47:51.473145
+Cuestionario uno. Pregunta 1.  ¿Cual es su recuerdo mas vivido?C0 - 2023-06-20 14:47:53.346930
+cuestionario 1 - 2023-06-20 14:49:18.336855
+Cuestionario uno. Pregunta 1.  ¿Cual es su recuerdo mas vivido?C0 - 2023-06-20 14:49:20.117950
+cuestionario 1 - 2023-06-20 15:05:15.059165
+Cuestionario uno. Pregunta 1.  ¿Cual es su recuerdo mas vivido?C0 - 2023-06-20 15:05:16.908081
+cuestionario 1 - 2023-06-20 15:07:44.509529
+Cuestionario uno. Pregunta 1.  ¿Cual es su recuerdo mas vivido?C0 - 2023-06-20 15:07:46.145878
+cuestionario 1 - 2023-06-20 15:10:01.083189
+Cuestionario uno. Pregunta 1.  ¿Cual es su recuerdo mas vivido?C0 - 2023-06-20 15:10:02.683938
+cuestionario 1 - 2023-06-20 15:11:23.599982
+Cuestionario uno. Pregunta 1.  ¿Cual es su recuerdo mas vivido?C0 - 2023-06-20 15:11:25.675263
+¿qué es? cuestionario 1 - 2023-06-20 15:17:50.452360
+¿qué es? cuestionario 1N0 - 2023-06-20 15:17:55.269764
+el tercenario 1. - 2023-06-20 15:18:29.997763
+el tercenario 1.N0 - 2023-06-20 15:18:31.761097
+cuestionario uno. - 2023-06-20 15:19:10.453886
+Cuestionario uno. Pregunta 1.  ¿Cual es su recuerdo mas vivido?C0 - 2023-06-20 15:19:12.329802
+hola, hola, hola, azul, rojo, rojo, verde, tablet, azul, sol. - 2023-06-20 15:19:48.579062
+Nodo Detector mentiras responde>: Es mentira  - 2023-06-20 15:19:49.180653
+Pregunta 2  ¿Qué es lo que menos que le gusta de usted?C1 - 2023-06-20 15:19:51.066168
+cuestionario 1 - 2023-06-20 15:22:14.708621
+Cuestionario uno. Pregunta 1.  ¿Cual es su recuerdo mas vivido?C0 - 2023-06-20 15:22:16.572290
+hola, sí, 1, 2, 3. hola, no, 1, 2, 4, 8, sí. - 2023-06-20 15:22:53.772268
+Nodo Detector mentiras responde>: Es mentira  - 2023-06-20 15:22:54.171623
+Pregunta 2  ¿Qué es lo que menos que le gusta de usted?C1 - 2023-06-20 15:22:55.897832
+cuestionario 1 - 2023-06-20 15:26:26.197909
+Cuestionario uno. Pregunta 1.  ¿Cual es su recuerdo mas vivido?C0 - 2023-06-20 15:26:28.064466
+cuestionario 1 - 2023-06-20 15:30:04.980035
+Cuestionario uno. Pregunta 1.  ¿Cual es su recuerdo mas vivido?C0 - 2023-06-20 15:30:07.149366
+1, 2, 3, hola, si, hola, ey, ey, ey. - 2023-06-20 15:30:40.835821
+Nodo Detector mentiras responde>: Es mentira  - 2023-06-20 15:30:41.102060
+Pregunta 2  ¿Qué es lo que menos que le gusta de usted?C1 - 2023-06-20 15:30:43.114419
+azul, rojo, sí, no, no, ay, mi jin, ay. - 2023-06-20 15:31:36.493458
+Nodo Detector mentiras responde>: Es mentira  - 2023-06-20 15:31:36.850737
+Pregunta 3  ¿Bajo qué circunstancias mentiría?C2 - 2023-06-20 15:31:38.733735
+bajo ninguna circunstancia, ya que los hombres no mienten, las mujeres sí. ¡maldito! - 2023-06-20 15:32:13.846421
+Nodo Detector mentiras responde>: Es mentira  - 2023-06-20 15:32:14.088127
+Pregunta 4  ¿Qué recuerda de su padre?C3 - 2023-06-20 15:32:17.969534
+nada de nada mijín, no me acuerdas de absolutamente nada importante en esas fechas. gracias. - 2023-06-20 15:32:58.195020
+Nodo Detector mentiras responde>: Es verdad  - 2023-06-20 15:32:58.568469
+Pregunta 5  ¿Qué recuerda de su madre?C4 - 2023-06-20 15:33:04.250516
+recuerdo cuando me preparó un cebollado maldito, buenísimo, que curra todo del espanto. - 2023-06-20 15:33:35.401057
+Nodo Detector mentiras responde>: Es mentira  - 2023-06-20 15:33:35.687078
+Pregunta 6  ¿Cuál ha sido la mejor experiencia de su vida?C5 - 2023-06-20 15:33:40.401240
+¿qué dices? chúpalo, chúpalo, chúpalo. hola, hola, hola, hola, hola. chupalo. - 2023-06-20 15:34:13.570135
+Nodo Detector mentiras responde>: Es mentira  - 2023-06-20 15:34:13.848373
+Pregunta 7  ¿Cuál ha sido la peor experiencia de su vida?C6 - 2023-06-20 15:34:15.887512
+hola, hola, azul, azul, rojo, rojo, verde, tomate. - 2023-06-20 15:35:29.306246
+Nodo Detector mentiras responde>: Es mentira  - 2023-06-20 15:35:29.667676
+Pregunta 8  Si usted pudiera defraudar impuestos sin que nadie se enterara ¿Lo haría?C7 - 2023-06-20 15:35:31.653037
+por supuesto, pepper. ¿por qué le piden que se cojan a esos asambleístas? en vez de darle de comer a los asambleístas. - 2023-06-20 15:36:07.824798
+Nodo Detector mentiras responde>: Es mentira  - 2023-06-20 15:36:08.093139
+Pregunta 9  Cuente una experiencia en la que haya mentido sin que nadie se enteraraC8 - 2023-06-20 15:36:18.336626
+azul, verde, rojo, tomate, uno, dos, arriba, abajo, izquierda, derecha, xy. - 2023-06-20 15:36:57.511115
+Nodo Detector mentiras responde>: Es verdad  - 2023-06-20 15:36:57.840002
+Pregunta 10  ¿Que es lo que opina sobre las aseguradoras de carros?C9 - 2023-06-20 15:36:59.656534
+que son una maldita li... oye! jajaja como se llama el bote? azul, rojo, verde, tomate, 1, 2, 3, 4, 5, 6 que hora coquiste? no se si me he conchucedo esa... subtitulos por la comunidad de amara.org - 2023-06-20 15:37:32.423922
+Nodo Detector mentiras responde>: Es mentira  - 2023-06-20 15:37:32.699942
+Has terminado el cuestionario 1N0 - 2023-06-20 15:37:32.708761
+no sé a mí me interesa. cuestionario 1 - 2023-06-20 15:38:20.809259
+no sé a mí me interesa. cuestionario 1N0 - 2023-06-20 15:38:22.938191
+cuestionario 1 - 2023-06-20 15:40:26.872024
+Cuestionario uno. Pregunta 1.  ¿Cual es su recuerdo mas vivido?C0 - 2023-06-20 15:40:28.987846
+mi recuerdo más vivido fue cuando era pelado y tenía 5 años y me fui a la playa por primera vez. - 2023-06-20 15:41:02.216626
+Nodo Detector mentiras responde>: Es mentira  - 2023-06-20 15:41:02.608262
+Pregunta 2  ¿Qué es lo que menos que le gusta de usted?C1 - 2023-06-20 15:41:07.510715
+lo menos que me gusta de mí que a veces soy demasiado ingenuo. - 2023-06-20 15:41:38.045333
+Nodo Detector mentiras responde>: Es verdad  - 2023-06-20 15:41:38.303340
+Pregunta 3  ¿Bajo qué circunstancias mentiría?C2 - 2023-06-20 15:41:44.148657
+me enteraría dependiendo la situación en la que me encuentre y si algo debido a muerte dependiera de ello. - 2023-06-20 15:42:16.071735
+Nodo Detector mentiras responde>: Es verdad  - 2023-06-20 15:42:16.471654
+Pregunta 4  ¿Qué recuerda de su padre?C3 - 2023-06-20 15:42:25.619953

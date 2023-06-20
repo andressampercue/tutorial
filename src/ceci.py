@@ -282,10 +282,9 @@ from tutorial.srv import ChatBotVariables
 # This module is imported so that we can
 # play the converted audio
 import os
-
 import openai
 
-global count_animation 
+count_animation = 1
 
 #para el nodo servidor del cuestionario
 def chatBot_client(x):
@@ -301,20 +300,9 @@ def chatBot_client(x):
 def nexus():    
         
         global variable #para manejar la variable que determina si nos encontramos dentro o fuera del chatbot
-        # obtain audio from the microphone
-        #r = sr.Recognizer()
-        #print(sr.Microphone.list_microphone_names())
-
-        #for index, name in enumerate(sr.Microphone.list_microphone_names()):
-            #print("Microphone with name \"{1}\" found for `Microphone(device_index={0})`".format(index, name))
-        
-        #with sr.Microphone(device_index=1) as source:
-            #r.adjust_for_ambient_noise(source)
-            #print("Di, algo")
-            
-            #audio = r.listen(source, phrase_time_limit = 10 )
-
         # recognize speech using Google Speech Recognition
+        global count_animation 
+        
         try:
             # for testing purposes, we're just using the default API key
             # to use another API key, use `r.recognize_google(audio, key="GOOGLE_SPEECH_RECOGNITION_API_KEY")`
@@ -324,8 +312,7 @@ def nexus():
             #truueeeeeee
             ssh.getting_audio_from_pepper()
             #audio = sr.AudioFile("/home/andres/catkin_ws/src/tutorial/audio_files/u_audio.wav") #read audio object and transcribe
-            openai.api_key = "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"
-
+            openai.api_key = "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"
             with open("/home/andres/catkin_ws/src/tutorial/audio_files/u_audio.wav", "rb") as audio_file:
                 dice = openai.Audio.transcribe(
                 file = audio_file,
@@ -335,6 +322,7 @@ def nexus():
             )
             
             dice = dice.strip()
+            dice = dice.lower()
             print("Analizando audio")                
             #dice = r.recognize_google(audio)
 
@@ -350,8 +338,6 @@ def nexus():
 
             if (variable!="N0"):
                 if (numeroPalabras > 5):
-
-                    count_animation = 0
 
                     respuestaChatBot = "%s"%(chatBot_client(dice+variable))#se envia una N para hacer referencia que esta en el CHAT NORMAL
                     escribirArchivo(respuestaChatBot+ " - " + str(datetime.today()))
@@ -398,11 +384,14 @@ def nexus():
                     abrir_archivo()
                     iniciar()
                     ssh.sending_audio_to_pepper()
-                    count_animation += 1
-                    pepper_speak()
+                    count_animation = count_animation + 1
+                    pepper_speak(count_animation)
+
+                    if count_animation == 10:
+                        count_animation = 0
 
                 else:
-                    respuestaChatBot = "La respuesta debe tener al menos 25 palabras, por favor repita"
+                    respuestaChatBot = "La respuesta debe tener al menos 5 palabras, por favor repita"
                     print("audio que envia a grabar "+respuestaChatBot)
                     myobj = gTTS(text=respuestaChatBot, lang=language, slow=False)
                         
@@ -421,7 +410,8 @@ def nexus():
                     abrir_archivo()
                     iniciar()  
                     ssh.sending_audio_to_pepper()
-                    pepper_speak()  
+                    pepper_speak(11)  
+
             else:
                     respuestaChatBot = "%s"%(chatBot_client(dice+variable))#se envia una N para hacer referencia que esta en el CHAT NORMAL
                     escribirArchivo(respuestaChatBot+ " - " + str(datetime.today()))
@@ -468,7 +458,9 @@ def nexus():
                     abrir_archivo()
                     iniciar()
                     ssh.sending_audio_to_pepper()
-                    pepper_speak()
+                    #count_animation_out = 1
+                    pepper_speak(1)
+                    print("oooooooooooooooooooooooooooooooooooooooo")
 
         except sr.UnknownValueError:
             print("Google Speech Recognition could not understand audio")
@@ -488,7 +480,8 @@ def nexus():
             abrir_archivo()
             iniciar()
             ssh.sending_audio_to_pepper()
-            pepper_speak()
+            #count_animation_no_understand = 1
+            pepper_speak(13)
 
             # Playing the converted file
             #abrir_archivo()
@@ -532,7 +525,7 @@ def pepper_listen():
     channel.send(None)
     print (channel.receive())
 
-def pepper_speak():
+def pepper_speak(count):
      
     gw = execnet.makegateway("popen//python=python2.7")
     channel = gw.remote_exec("""
@@ -549,34 +542,138 @@ def pepper_speak():
         except:
             print('Error connecting to robot')
         
-        #count_animation = channel.receive()
+        contador_pregunta = channel.receive()
         file_path = "/home/nao/recordings/chatbot/chatbot_audio.wav" #u_audio es el nombre del archivo de audio generado por grabacion desde pepper
-        aup = ALProxy("ALAudioPlayer", "172.16.224.164", 9559)
-        aup.post.playFile(file_path)
-
         animation_player_service = session.service("ALAnimationPlayer")
+        tabletService = session.service("ALTabletService")
         print("Pepper speaking")
 
         # play an animation, this will return when the animation is finished
-        #animation_player_service.run("animations/Stand/Emotions/Positive/Happy_4")
-        #animation_player_service.run("animations/Stand/Emotions/Positive/Peaceful_1")
-        #animation_player_service.run("animations/Stand/Gestures/But_1")
-        #animation_player_service.run("animations/Stand/Gestures/Choice_1")
-        #animation_player_service.run("animations/Stand/Gestures/Everything_1")
-        #animation_player_service.run("animations/Stand/Gestures/Everything_3")
-        #animation_player_service.run("animations/Stand/Gestures/Everything_4")
         
-        animation_player_service.run("animations/Stand/Gestures/Explain_1")
-        animation_player_service.run("animations/Stand/Gestures/Explain_2")
-        animation_player_service.run("animations/Stand/Gestures/Explain_3")
+        if contador_pregunta  == 1:
+            tabletService.showImage("https://i.imgur.com/GuYi7to.jpg")
+            aup = ALProxy("ALAudioPlayer", "172.16.224.164", 9559)
+            aup.post.playFile(file_path)
+            animation_player_service.run("animations/Stand/Gestures/Explain_1")
+            animation_player_service.run("animations/Stand/Gestures/Explain_2")
+            animation_player_service.run("animations/Stand/Gestures/Explain_3")
+            tabletService.hideImage()
 
+        elif contador_pregunta == 2:
+            tabletService.showImage("https://i.imgur.com/6lkuMeC.jpg")
+            aup = ALProxy("ALAudioPlayer", "172.16.224.164", 9559)
+            aup.post.playFile(file_path)
+            animation_player_service.run("animations/Stand/Gestures/Explain_4")
+            animation_player_service.run("animations/Stand/Gestures/Explain_5")
+            animation_player_service.run("animations/Stand/Gestures/Explain_6")
+            tabletService.hideImage()
+
+        elif contador_pregunta == 3:
+            tabletService.showImage("https://i.imgur.com/ig2j2tY.jpg")
+            aup = ALProxy("ALAudioPlayer", "172.16.224.164", 9559)
+            aup.post.playFile(file_path)
+            animation_player_service.run("animations/Stand/Gestures/Explain_7")
+            animation_player_service.run("animations/Stand/Gestures/Explain_8")
+            animation_player_service.run("animations/Stand/Gestures/Explain_1")
+            tabletService.hideImage()
+
+        elif contador_pregunta == 4:
+            tabletService.showImage("https://i.imgur.com/KPNFMZa.jpg")
+            aup = ALProxy("ALAudioPlayer", "172.16.224.164", 9559)
+            aup.post.playFile(file_path)
+            animation_player_service.run("animations/Stand/Gestures/Explain_2")
+            animation_player_service.run("animations/Stand/Gestures/Explain_3")
+            animation_player_service.run("animations/Stand/Gestures/Explain_4")
+            tabletService.hideImage()
+
+        elif contador_pregunta == 5:
+            tabletService.showImage("https://i.imgur.com/kipZ5MH.jpg")
+            aup = ALProxy("ALAudioPlayer", "172.16.224.164", 9559)
+            aup.post.playFile(file_path)
+            animation_player_service.run("animations/Stand/Gestures/Explain_5")
+            animation_player_service.run("animations/Stand/Gestures/Explain_6")
+            animation_player_service.run("animations/Stand/Gestures/Explain_7")
+            tabletService.hideImage()
+
+        elif contador_pregunta == 6:
+            tabletService.showImage("https://i.imgur.com/YwQUj5O.jpg")
+            aup = ALProxy("ALAudioPlayer", "172.16.224.164", 9559)
+            aup.post.playFile(file_path)
+            animation_player_service.run("animations/Stand/Gestures/Explain_8")
+            animation_player_service.run("animations/Stand/Gestures/Explain_1")
+            animation_player_service.run("animations/Stand/Gestures/Explain_2")
+            tabletService.hideImage()
+
+        elif contador_pregunta == 7:
+            tabletService.showImage("https://i.imgur.com/QvQiphe.jpg")
+            aup = ALProxy("ALAudioPlayer", "172.16.224.164", 9559)
+            aup.post.playFile(file_path)
+            animation_player_service.run("animations/Stand/Gestures/Explain_3")
+            animation_player_service.run("animations/Stand/Gestures/Explain_4")
+            animation_player_service.run("animations/Stand/Gestures/Explain_5")
+            tabletService.hideImage()
+
+        elif contador_pregunta == 8:
+            tabletService.showImage("https://i.imgur.com/OdY5jNr.jpg")
+            aup = ALProxy("ALAudioPlayer", "172.16.224.164", 9559)
+            aup.post.playFile(file_path)
+            animation_player_service.run("animations/Stand/Gestures/Explain_6")
+            animation_player_service.run("animations/Stand/Gestures/Explain_7")
+            animation_player_service.run("animations/Stand/Gestures/Explain_8")
+            tabletService.hideImage()
+
+        elif contador_pregunta == 9:
+            tabletService.showImage("https://i.imgur.com/ceGUgbm.jpg")
+            aup = ALProxy("ALAudioPlayer", "172.16.224.164", 9559)
+            aup.post.playFile(file_path)
+            animation_player_service.run("animations/Stand/Gestures/Explain_1")
+            animation_player_service.run("animations/Stand/Gestures/Explain_2")
+            animation_player_service.run("animations/Stand/Gestures/Explain_3")
+            tabletService.hideImage()
+
+        elif contador_pregunta == 10:
+            tabletService.showImage("https://i.imgur.com/hUlV8Mj.jpg")
+            aup = ALProxy("ALAudioPlayer", "172.16.224.164", 9559)
+            aup.post.playFile(file_path)
+            animation_player_service.run("animations/Stand/Gestures/Explain_4")
+            animation_player_service.run("animations/Stand/Gestures/Explain_5")
+            animation_player_service.run("animations/Stand/Gestures/Explain_6")
+            tabletService.hideImage()
+
+        elif contador_pregunta == 11:
+            tabletService.showImage("https://i.imgur.com/u64bxGf.jpg")
+            aup = ALProxy("ALAudioPlayer", "172.16.224.164", 9559)
+            aup.post.playFile(file_path)
+            animation_player_service.run("animations/Stand/Gestures/Explain_7")
+            animation_player_service.run("animations/Stand/Gestures/Explain_8")
+            animation_player_service.run("animations/Stand/Gestures/Explain_1")
+            tabletService.hideImage()
+
+        elif contador_pregunta == 12:
+            tabletService.showImage("https://i.imgur.com/thMvHBO.jpg")
+            aup = ALProxy("ALAudioPlayer", "172.16.224.164", 9559)
+            aup.post.playFile(file_path)
+            animation_player_service.run("animations/Stand/Gestures/Explain_2")
+            animation_player_service.run("animations/Stand/Gestures/Explain_3")
+            animation_player_service.run("animations/Stand/Gestures/Explain_4")
+            tabletService.hideImage()
+
+        elif contador_pregunta == 13:
+            tabletService.showImage("https://i.imgur.com/kURLbCO.jpg")
+            aup = ALProxy("ALAudioPlayer", "172.16.224.164", 9559)
+            aup.post.playFile(file_path)
+            animation_player_service.run("animations/Stand/Gestures/Explain_5")
+            animation_player_service.run("animations/Stand/Gestures/Explain_6")
+            animation_player_service.run("animations/Stand/Gestures/Explain_7")
+            tabletService.hideImage()
+            
         conf = "Speaking OK"
-
-        channel.send(conf)
+        cont_preg = str(contador_pregunta)
+        channel.send(cont_preg)
     """)
-    #channel.send(count_animation)
-    channel.send(None)
-    print (channel.receive())
+    channel.send(count)
+    #channel.send(None)
+    print(channel.receive())
 
 class ssh_file_transfer:
 

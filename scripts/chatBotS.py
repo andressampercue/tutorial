@@ -104,11 +104,13 @@ def chatb(req):
                 print('NEXUS-BOT: ',responseGeneral)
                 
                 response = str(peticionGeneral)
-                response1 = "Cuestionario uno"
-                response2 = "Cuestionario 1"   
+                response1 = "cuestionario uno"
+                response2 = "cuestionario 1"   
+                response3 = "cuestionario uno."
+                response4 = "cuestionario 1."  
                 print("u_audio_text:", response)
                         
-                if response == response1 or response == response2:
+                if response == response1 or response == response2 or response == response3 or response == response4: 
                     print("<<<<<<<<<<<<<<< Bienvenido al cuestionario 1 >>>>>>>>>>>>>>>>>>>>")
                     pregunta = add_two_ints_client(0)
                     print("%s"%(add_two_ints_client(0)))
