@@ -285,6 +285,7 @@ import os
 import openai
 
 count_animation = 1
+response_number = 0
 
 #para el nodo servidor del cuestionario
 def chatBot_client(x):
@@ -302,18 +303,19 @@ def nexus():
         global variable #para manejar la variable que determina si nos encontramos dentro o fuera del chatbot
         # recognize speech using Google Speech Recognition
         global count_animation 
+        global response_number
         
         try:
             # for testing purposes, we're just using the default API key
             # to use another API key, use `r.recognize_google(audio, key="GOOGLE_SPEECH_RECOGNITION_API_KEY")`
             # instead of `r.recognize_google(audio)`
-            pepper_listen()
-            ssh = ssh_file_transfer('172.16.224.164')
+            pepper_listen(response_number)
+            ssh = ssh_file_transfer('172.16.225.149', response_number)
             #truueeeeeee
             ssh.getting_audio_from_pepper()
             #audio = sr.AudioFile("/home/andres/catkin_ws/src/tutorial/audio_files/u_audio.wav") #read audio object and transcribe
-            openai.api_key = "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"
-            with open("/home/andres/catkin_ws/src/tutorial/audio_files/u_audio.wav", "rb") as audio_file:
+            openai.api_key = "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"
+            with open("/home/andres/catkin_ws/src/tutorial/audio_files/response_{number}.wav".format(number = response_number), "rb") as audio_file:
                 dice = openai.Audio.transcribe(
                 file = audio_file,
                 model = "whisper-1",
@@ -339,6 +341,7 @@ def nexus():
             if (variable!="N0"):
                 if (numeroPalabras > 5):
 
+                    response_number = response_number + 1
                     respuestaChatBot = "%s"%(chatBot_client(dice+variable))#se envia una N para hacer referencia que esta en el CHAT NORMAL
                     escribirArchivo(respuestaChatBot+ " - " + str(datetime.today()))
                     with open('auditoria', 'w') as f:
@@ -389,6 +392,9 @@ def nexus():
 
                     if count_animation == 10:
                         count_animation = 0
+                    
+                    elif response_number == 10:
+                        response_number = 0
 
                 else:
                     respuestaChatBot = "La respuesta debe tener al menos 5 palabras, por favor repita"
@@ -489,7 +495,7 @@ def nexus():
         except sr.RequestError as e:
             print("Could not request results from Google Speech Recognition service; {0}".format(e))  
 
-def pepper_listen():
+def pepper_listen(resp_numb):
 
     gw = execnet.makegateway("popen//python=python2.7")
     channel = gw.remote_exec("""
@@ -499,18 +505,19 @@ def pepper_listen():
         session = qi.Session()
 
         try:
-            session.connect("tcp://172.16.224.164:9559")
+            session.connect("tcp://172.16.225.149:9559")
             print('Succesfull connecting')
         except:
             print('Error connecting to robot')
 
-        file_path = "/home/nao/recordings/chatbot/u_audio.wav" #u_audio es el nombre del archivo de audio generado por grabacion desde pepper
+        response_number = channel.receive()
+        file_path = "/home/nao/recordings/chatbot/response_{number}.wav".format(number = response_number) #u_audio es el nombre del archivo de audio generado por grabacion desde pepper
 
         sample_rate = 48000
         channels = [0,0,0,1] #Only record sound of the third microphone
-        leds = ALProxy("ALLeds", "172.16.224.164", 9559) 
+        leds = ALProxy("ALLeds", "172.16.225.149", 9559) 
 
-        ar = ALProxy("ALAudioRecorder","172.16.224.164", 9559)
+        ar = ALProxy("ALAudioRecorder","172.16.225.149", 9559)
         ar.stopMicrophonesRecording()
         ar.startMicrophonesRecording(file_path, "wav", sample_rate, channels)
         print("Pepper listening")
@@ -522,7 +529,8 @@ def pepper_listen():
 
         channel.send(conf)
     """)
-    channel.send(None)
+    channel.send(resp_numb)
+    #channel.send(None)
     print (channel.receive())
 
 def pepper_speak(count):
@@ -537,7 +545,7 @@ def pepper_speak(count):
         session = qi.Session()
 
         try:
-            session.connect("tcp://172.16.224.164:9559")
+            session.connect("tcp://172.16.225.149:9559")
             print('Succesfull connecting')
         except:
             print('Error connecting to robot')
@@ -552,7 +560,7 @@ def pepper_speak(count):
         
         if contador_pregunta  == 1:
             tabletService.showImage("https://i.imgur.com/GuYi7to.jpg")
-            aup = ALProxy("ALAudioPlayer", "172.16.224.164", 9559)
+            aup = ALProxy("ALAudioPlayer", "172.16.225.149", 9559)
             aup.post.playFile(file_path)
             animation_player_service.run("animations/Stand/Gestures/Explain_1")
             animation_player_service.run("animations/Stand/Gestures/Explain_2")
@@ -561,7 +569,7 @@ def pepper_speak(count):
 
         elif contador_pregunta == 2:
             tabletService.showImage("https://i.imgur.com/6lkuMeC.jpg")
-            aup = ALProxy("ALAudioPlayer", "172.16.224.164", 9559)
+            aup = ALProxy("ALAudioPlayer", "172.16.225.149", 9559)
             aup.post.playFile(file_path)
             animation_player_service.run("animations/Stand/Gestures/Explain_4")
             animation_player_service.run("animations/Stand/Gestures/Explain_5")
@@ -570,7 +578,7 @@ def pepper_speak(count):
 
         elif contador_pregunta == 3:
             tabletService.showImage("https://i.imgur.com/ig2j2tY.jpg")
-            aup = ALProxy("ALAudioPlayer", "172.16.224.164", 9559)
+            aup = ALProxy("ALAudioPlayer", "172.16.225.149", 9559)
             aup.post.playFile(file_path)
             animation_player_service.run("animations/Stand/Gestures/Explain_7")
             animation_player_service.run("animations/Stand/Gestures/Explain_8")
@@ -579,7 +587,7 @@ def pepper_speak(count):
 
         elif contador_pregunta == 4:
             tabletService.showImage("https://i.imgur.com/KPNFMZa.jpg")
-            aup = ALProxy("ALAudioPlayer", "172.16.224.164", 9559)
+            aup = ALProxy("ALAudioPlayer", "172.16.225.149", 9559)
             aup.post.playFile(file_path)
             animation_player_service.run("animations/Stand/Gestures/Explain_2")
             animation_player_service.run("animations/Stand/Gestures/Explain_3")
@@ -588,7 +596,7 @@ def pepper_speak(count):
 
         elif contador_pregunta == 5:
             tabletService.showImage("https://i.imgur.com/kipZ5MH.jpg")
-            aup = ALProxy("ALAudioPlayer", "172.16.224.164", 9559)
+            aup = ALProxy("ALAudioPlayer", "172.16.225.149", 9559)
             aup.post.playFile(file_path)
             animation_player_service.run("animations/Stand/Gestures/Explain_5")
             animation_player_service.run("animations/Stand/Gestures/Explain_6")
@@ -597,7 +605,7 @@ def pepper_speak(count):
 
         elif contador_pregunta == 6:
             tabletService.showImage("https://i.imgur.com/YwQUj5O.jpg")
-            aup = ALProxy("ALAudioPlayer", "172.16.224.164", 9559)
+            aup = ALProxy("ALAudioPlayer", "172.16.225.149", 9559)
             aup.post.playFile(file_path)
             animation_player_service.run("animations/Stand/Gestures/Explain_8")
             animation_player_service.run("animations/Stand/Gestures/Explain_1")
@@ -606,7 +614,7 @@ def pepper_speak(count):
 
         elif contador_pregunta == 7:
             tabletService.showImage("https://i.imgur.com/QvQiphe.jpg")
-            aup = ALProxy("ALAudioPlayer", "172.16.224.164", 9559)
+            aup = ALProxy("ALAudioPlayer", "172.16.225.149", 9559)
             aup.post.playFile(file_path)
             animation_player_service.run("animations/Stand/Gestures/Explain_3")
             animation_player_service.run("animations/Stand/Gestures/Explain_4")
@@ -615,7 +623,7 @@ def pepper_speak(count):
 
         elif contador_pregunta == 8:
             tabletService.showImage("https://i.imgur.com/OdY5jNr.jpg")
-            aup = ALProxy("ALAudioPlayer", "172.16.224.164", 9559)
+            aup = ALProxy("ALAudioPlayer", "172.16.225.149", 9559)
             aup.post.playFile(file_path)
             animation_player_service.run("animations/Stand/Gestures/Explain_6")
             animation_player_service.run("animations/Stand/Gestures/Explain_7")
@@ -624,7 +632,7 @@ def pepper_speak(count):
 
         elif contador_pregunta == 9:
             tabletService.showImage("https://i.imgur.com/ceGUgbm.jpg")
-            aup = ALProxy("ALAudioPlayer", "172.16.224.164", 9559)
+            aup = ALProxy("ALAudioPlayer", "172.16.225.149", 9559)
             aup.post.playFile(file_path)
             animation_player_service.run("animations/Stand/Gestures/Explain_1")
             animation_player_service.run("animations/Stand/Gestures/Explain_2")
@@ -633,7 +641,7 @@ def pepper_speak(count):
 
         elif contador_pregunta == 10:
             tabletService.showImage("https://i.imgur.com/hUlV8Mj.jpg")
-            aup = ALProxy("ALAudioPlayer", "172.16.224.164", 9559)
+            aup = ALProxy("ALAudioPlayer", "172.16.225.149", 9559)
             aup.post.playFile(file_path)
             animation_player_service.run("animations/Stand/Gestures/Explain_4")
             animation_player_service.run("animations/Stand/Gestures/Explain_5")
@@ -642,7 +650,7 @@ def pepper_speak(count):
 
         elif contador_pregunta == 11:
             tabletService.showImage("https://i.imgur.com/u64bxGf.jpg")
-            aup = ALProxy("ALAudioPlayer", "172.16.224.164", 9559)
+            aup = ALProxy("ALAudioPlayer", "172.16.225.149", 9559)
             aup.post.playFile(file_path)
             animation_player_service.run("animations/Stand/Gestures/Explain_7")
             animation_player_service.run("animations/Stand/Gestures/Explain_8")
@@ -651,7 +659,7 @@ def pepper_speak(count):
 
         elif contador_pregunta == 12:
             tabletService.showImage("https://i.imgur.com/thMvHBO.jpg")
-            aup = ALProxy("ALAudioPlayer", "172.16.224.164", 9559)
+            aup = ALProxy("ALAudioPlayer", "172.16.225.149", 9559)
             aup.post.playFile(file_path)
             animation_player_service.run("animations/Stand/Gestures/Explain_2")
             animation_player_service.run("animations/Stand/Gestures/Explain_3")
@@ -660,7 +668,7 @@ def pepper_speak(count):
 
         elif contador_pregunta == 13:
             tabletService.showImage("https://i.imgur.com/kURLbCO.jpg")
-            aup = ALProxy("ALAudioPlayer", "172.16.224.164", 9559)
+            aup = ALProxy("ALAudioPlayer", "172.16.225.149", 9559)
             aup.post.playFile(file_path)
             animation_player_service.run("animations/Stand/Gestures/Explain_5")
             animation_player_service.run("animations/Stand/Gestures/Explain_6")
@@ -677,12 +685,13 @@ def pepper_speak(count):
 
 class ssh_file_transfer:
 
-    def __init__(self, robot_ip):
+    def __init__(self, robot_ip, resp_numb):
 
         self.robot_ip = robot_ip
         self.USERNAME = 'nao'
         self.PASSWORD = 'pepper'
         self.CLIENT = None
+        self.response_number = resp_numb
 
         try:
 
@@ -701,8 +710,8 @@ class ssh_file_transfer:
     
     def getting_audio_from_pepper(self):
             
-        remote_path = f'/home/{self.USERNAME}/recordings/chatbot/u_audio.wav'
-        output_file = '/home/andres/catkin_ws/src/tutorial/audio_files/u_audio.wav'
+        remote_path = f'/home/{self.USERNAME}/recordings/chatbot/response_{self.response_number}.wav'
+        output_file = f'/home/andres/catkin_ws/src/tutorial/audio_files/response_{self.response_number}.wav'
 
         sftp_client = self.CLIENT.open_sftp()
         sftp_client.get(remote_path, output_file)

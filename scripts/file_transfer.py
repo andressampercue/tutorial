@@ -72,8 +72,8 @@ class ssh_file_transfer:
 
         """
 
-        remote_path = f'/home/{self.USERNAME}/recordings/chatbot/u_audio.wav'
-        output_file = '/home/andres/catkin_ws/src/tutorial/audio_files/u_audio.wav'
+        remote_path = '/home/nao/recordings/cameras/myvideo.avi'
+        output_file = '/home/andres/myvideo.avi'
 
         sftp_client = self.CLIENT.open_sftp()
         sftp_client.get(remote_path, output_file)
@@ -95,7 +95,7 @@ class ssh_file_transfer:
 
 if __name__ == '__main__':
 
-    ssh = ssh_file_transfer('172.16.224.63')
+    ssh = ssh_file_transfer('172.16.226.67')
 
     ssh.getting_audio_from_pepper()
     #ssh.sending_audio_to_pepper()

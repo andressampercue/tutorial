@@ -372,3 +372,10 @@ Pregunta 3  ¿Bajo qué circunstancias mentiría?C2 - 2023-06-20 15:41:44.148657
 me enteraría dependiendo la situación en la que me encuentre y si algo debido a muerte dependiera de ello. - 2023-06-20 15:42:16.071735
 Nodo Detector mentiras responde>: Es verdad  - 2023-06-20 15:42:16.471654
 Pregunta 4  ¿Qué recuerda de su padre?C3 - 2023-06-20 15:42:25.619953
+cuestionario 1 - 2023-06-23 15:16:10.630176
+Cuestionario uno. Pregunta 1.  ¿Cual es su recuerdo mas vivido?C0 - 2023-06-23 15:16:12.747328
+cuestionario 1 - 2023-06-23 16:00:19.875578
+Cuestionario uno. Pregunta 1.  ¿Cual es su recuerdo mas vivido?C0 - 2023-06-23 16:00:21.475570
+si, si. hola, hola. si, si. hola, hola, hola. hola, si. hola, si. si, si. hola, hola, si. - 2023-06-23 16:01:11.355117
+Nodo Detector mentiras responde>: Es mentira  - 2023-06-23 16:01:14.030643
+Pregunta 2  ¿Qué es lo que menos que le gusta de usted?C1 - 2023-06-23 16:01:15.855169
